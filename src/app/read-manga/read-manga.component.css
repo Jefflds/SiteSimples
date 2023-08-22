@@ -1,0 +1,41 @@
+.section {
+  background-color: #f9f9f9;
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container h2 {
+  font-size: 28px;
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.container p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.manga-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manga-links a {
+  font-size: 18px;
+  color: #3498db;
+  text-decoration: none;
+  margin: 10px 0;
+  transition: color 0.3s;
+}
+
+.manga-links a:hover {
+  color: #2980b9;
+}
