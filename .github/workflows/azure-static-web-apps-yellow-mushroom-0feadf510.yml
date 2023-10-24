@@ -9,32 +9,29 @@ on:
     branches:
       - master
 
-
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-          lfs: false
+      - uses: actions/checkout@v2 # Use a versão 2 para ter suporte a submódulos e LFS
       - name: 🟢 Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+      - name: ⚡ Install Angular CLI
+        run: npm install -g @angular/cli
       - name: ⚡ npm install, build
         run: |
           npm install
-          npm install -g @angular/cli
           npm run build
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_MUSHROOM_0FEADF510 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Usado para integrações do GitHub (por exemplo, comentários de PR)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "dist" # Caminho corrigido para 'index.html'
-
+          app_location: "dist"
+          api_location: "api" # Adicione o caminho da pasta de API se aplicável
