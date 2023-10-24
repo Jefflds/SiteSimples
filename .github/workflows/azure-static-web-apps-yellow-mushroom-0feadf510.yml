@@ -2,7 +2,7 @@ name: "Angular APP"
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   AZURE_WEBAPP_NAME: <AngularAPP>
