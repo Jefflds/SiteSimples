@@ -20,9 +20,10 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ env.NODE_VERSION }}
-    - name: ⚡ npm install, build
+    - name: ⚡ npm install, update and build
       run: |
         npm install
+        npm install -g @angular/cli
         npm run build
     - name: '☁ Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
