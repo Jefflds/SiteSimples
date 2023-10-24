@@ -9,6 +9,7 @@ on:
     branches:
       - master
 
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -33,6 +34,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_MUSHROOM_0FEADF510 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Usado para integrações do GitHub (por exemplo, comentários de PR)
           action: "upload"
-          app_location: "dist" # Corrected path to 'index.html'
+          app_location: "dist" # Caminho corrigido para 'index.html'
+
