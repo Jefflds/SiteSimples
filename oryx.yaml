@@ -1,0 +1,16 @@
+# Defina a plataforma de destino como Node.js
+platform: nodejs
+
+# Etapas de compilação para o Angular
+scripts:
+  - script: npm install
+    displayName: 'Instalar dependências'
+  - script: npm install -g @angular/cli
+    displayName: 'Instalar Angular CLI'
+  - script: ng build --prod
+    displayName: 'Compilar o aplicativo Angular'
+
+# Especifique o diretório de saída do Angular (ajuste conforme seu projeto)
+outputDirectory: dist
+
+# Você também pode adicionar outras configurações específicas do Angular aqui, como versão do Node.js, etc.
